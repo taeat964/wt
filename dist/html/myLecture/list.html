@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WT</title>
+    
+    <link rel="stylesheet" href="/css/reset.min.css">
+    <link rel="stylesheet" href="/css/common.min.css">
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/swiper.min.js"></script>
+    <script src="/js/common.min.js"></script>
+    
+    <link rel="stylesheet" href="/css/myLectureList.min.css">
+</head>
+
+<body>
+
+    <header class="pc-header">
+        <div class="header-top">
+            <div class="container d-flex justify-between align-center h-full">
+                 <a href="/" class="logo">
+                    <img src="/images/wt_logo.png" alt="WT" style="height: 40px;">
+                </a>
+                 <div class="search-wrap">
+                    <input type="text" placeholder="강의를 검색해보세요">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-area">
+                    <div class="user-profile">
+                        <img src="https://placehold.co/100" alt="User">
+                    </div>
+                    <span class="user-name">○○○님</span>
+                    <button class="btn-logout" onclick="alert('로그아웃 되었습니다.')">Logout</button>
+                </div>
+            </div>
+        </div>
+        <div class="header-nav">
+            <div class="container d-flex justify-center">
+                <ul class="gnb">
+                    <li><a href="#">내 강의</a></li>
+                    <li><a href="#">강의 목록</a></li>
+                    <li><a href="#">강의 시청</a></li>
+                    <li><a href="#">강의 평가</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <header class="mo-header">
+        <nav class="container d-flex justify-between align-center h-full">
+            <a href="/" class="logo"><img src="/images/wt_logo.png" alt="WT" style="height: 30px;"></a>
+            <button class="btn mo-menu-btn"><i class="fas fa-bars" style="font-size: 1.5rem; color: var(--color-blue);"></i></button>
+        </nav>
+    </header>
+
+    <aside class="mo-side hidden">
+        <div class="side-header w-full">
+            <div class="d-flex justify-end align-center h-full px-2">
+                <button class="btn menu-close-btn">
+                    <i class="fas fa-times" style="font-size: 1.5rem;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="side-body pt-2 px-2">
+            <section class="sidebar-user d-flex align-center">
+                <div class="user-avatar">
+                    <img src="https://placehold.co/100" alt="" class="img-circle w-full h-full object-cover">
+                </div>
+                <div class="user-info ml-2">
+                    <div class="user-name font-bold">○○○님</div>
+                    <div class="user-meta text-sm text-gray-500">수강생</div>
+                </div>
+            </section>
+            <hr class="sidebar-divider my-4" style="border-top: 1px solid #ddd;" />
+            <nav class="sidebar-nav mb-4">
+                <ul>
+                    <li><a href="#">내 강의</a></li>
+                    <li><a href="#">강의 목록</a></li>
+                    <li><a href="#">강의 시청</a></li>
+                    <li><a href="#">강의 평가</a></li>
+                </ul>
+            </nav>
+            <button class="logout-btn w-full text-center">Logout</button>
+        </div>
+    </aside>
+
+    <div class="container pt-5">
+        
+        <div class="tlt-wrap mb-4">
+            <h2 class="page-title">My Lecture</h2>
+            <p class="sub-tlt">Check the lectures you've recently watched and purchased.</p>
+        </div>
+
+        <div class="inner">
+            
+            <div class="dashboard-stats">
+                <div class="stat-card blue active" onclick="selectStat(this)">
+                    <div class="stat-info">
+                        <h4>Total Lectures</h4>
+                        <div class="stat-num">12</div>
+                    </div>
+                    <div class="stat-icon"><i class="fas fa-book"></i></div>
+                </div>
+                <div class="stat-card red" onclick="selectStat(this)">
+                    <div class="stat-info">
+                        <h4>In Progress</h4>
+                        <div class="stat-num">5</div>
+                    </div>
+                    <div class="stat-icon"><i class="fas fa-play-circle"></i></div>
+                </div>
+            </div>
+
+            <div class="local-search-wrap">
+            <input type="text" class="local-search-input" placeholder="내 강의 검색 (강의명, 강사명 등)">
+                <button class="search-btn" type="button">
+                <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <section class="category-menu">
+                <div class="cat-list">
+                    <div class="cat-item" onclick="scrollToLevel('level-1')">
+                        Level 1.
+                    </div>
+                    <div class="cat-item" onclick="scrollToLevel('level-2')">
+                        Level 2.
+                    </div>
+                    <div class="cat-item" onclick="scrollToLevel('level-3')">
+                        Level 3.
+                    </div>
+                </div>
+            </section>
+
+            <section class="level-section" id="level-1">
+                <div class="level-header">
+                    <span class="level-badge">Lv.1</span>
+                    <h3 class="level-title">level-1</h3>
+                </div>
+                <div class="swiper-container level-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="lecture-item">
+                                <div class="img-wrap"><img src="https://placehold.co/250x150" alt="" class="w-full">
+                                    </div>
+                                    <div class="info-wrap">
+                                    <h3 class="lecture-tlt">강의 제목</h3>
+                                    <div class="progress-wrap">
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+                                        <p class="progress-text">100%</p>
+                                    </div>
+                                    <div class="btn-wrap"><button class="btn view-btn" onclick="location.href='/html/learn/learn.html'">다시보기</button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="lecture-item">
+                                <div class="img-wrap"><img src="https://placehold.co/250x150" alt="" class="w-full">
+                                    </div>
+                                    <div class="info-wrap">
+                                    <h3 class="lecture-tlt">강의 제목</h3>
+                                    <div class="progress-wrap">
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                                        <p class="progress-text">80%</p>
+                                    </div>
+                                    <div class="btn-wrap"><button class="btn view-btn" onclick="location.href='/html/learn/learn.html'">이어보기</button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="lecture-item">
+                                <div class="img-wrap"><img src="https://placehold.co/250x150" alt="" class="w-full">
+                                    </div>
+                                    <div class="info-wrap">
+                                    <h3 class="lecture-tlt">강의 제목</h3>
+                                    <div class="progress-wrap">
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 40%;"></div></div>
+                                        <p class="progress-text">40%</p>
+                                    </div>
+                                    <div class="btn-wrap"><button class="btn view-btn" onclick="location.href='/html/learn/learn.html'">이어보기</button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="lecture-item">
+                                <div class="img-wrap"><img src="https://placehold.co/250x150" alt="" class="w-full">
+                                    </div>
+                                    <div class="info-wrap">
+                                    <h3 class="lecture-tlt">강의 제목</h3>
+                                    <div class="progress-wrap">
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 10%;"></div></div>
+                                        <p class="progress-text">10%</p>
+                                    </div>
+                                    <div class="btn-wrap"><button class="btn view-btn" onclick="location.href='/html/learn/learn.html'">이어보기</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="level-section" id="level-2">
+                <div class="level-header">
+                    <span class="level-badge">Lv.2</span>
+                    <h3 class="level-title">level-2</h3>
+                </div>
+                <div class="swiper-container level-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="lecture-item">
+                                <div class="img-wrap"><img src="https://placehold.co/250x150" alt="" class="w-full">
+                                    </div>
+                                    <div class="info-wrap">
+                                    <h3 class="lecture-tlt">강의 제목</h3>
+                                    <div class="progress-wrap">
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div>
+                                        <p class="progress-text">60%</p>
+                                    </div>
+                                    <div class="btn-wrap"><button class="btn view-btn" onclick="location.href='/html/learn/learn.html'">이어보기</button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="lecture-item">
+                               <div class="img-wrap"><img src="https://placehold.co/250x150" alt="" class="w-full">
+                                    </div>
+                                    <div class="info-wrap">
+                                    <h3 class="lecture-tlt">강의 제목</h3>
+                                    <div class="progress-wrap">
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 25%;"></div></div>
+                                        <p class="progress-text">25%</p>
+                                    </div>
+                                    <div class="btn-wrap"><button class="btn view-btn" onclick="location.href='/html/learn/learn.html'">이어보기</button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="lecture-item">
+                                <div class="img-wrap"><img src="https://placehold.co/250x150" alt="" class="w-full">
+                                    </div>
+                                    <div class="info-wrap">
+                                    <h3 class="lecture-tlt">강의 제목</h3>
+                                    <div class="progress-wrap">
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                                        <p class="progress-text">0%</p>
+                                    </div>
+                                    <div class="btn-wrap"><button class="btn view-btn" onclick="location.href='/html/learn/learn.html'">시작하기</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="level-section" id="level-3">
+                <div class="level-header">
+                    <span class="level-badge">Lv.3</span>
+                    <h3 class="level-title">level-3</h3>
+                </div>
+                <div class="swiper-container level-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="lecture-item">
+                              <div class="img-wrap"><img src="https://placehold.co/250x150" alt="" class="w-full">
+                                    </div>
+                                    <div class="info-wrap">
+                                    <h3 class="lecture-tlt">강의 제목</h3>
+                                    <div class="progress-wrap">
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 10%;"></div></div>
+                                        <p class="progress-text">10%</p>
+                                    </div>
+                                    <div class="btn-wrap"><button class="btn view-btn" onclick="location.href='/html/learn/learn.html'">이어보기</button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="lecture-item">
+                                <div class="img-wrap"><img src="https://placehold.co/250x150" alt="" class="w-full">
+                                    </div>
+                                    <div class="info-wrap">
+                                    <h3 class="lecture-tlt">강의 제목</h3>
+                                    <div class="progress-wrap">
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                                        <p class="progress-text">0%</p>
+                                    </div>
+                                    <div class="btn-wrap"><button class="btn view-btn" onclick="location.href='/html/learn/learn.html'">시작하기</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu
+        const moMenuBtn = document.querySelector(".mo-menu-btn");
+        const moSide = document.querySelector(".mo-side");
+        const menuCloseBtn = document.querySelector(".menu-close-btn");
+
+        if(moMenuBtn) moMenuBtn.addEventListener("click", () => moSide.classList.remove("hidden"));
+        if(menuCloseBtn) menuCloseBtn.addEventListener("click", () => moSide.classList.add("hidden"));
+
+        // Initialize Swiper for each level
+        const swipers = document.querySelectorAll('.level-swiper');
+        swipers.forEach(swiperEl => {
+            new Swiper(swiperEl, {
+                slidesPerView: 1, // 모바일 기본 1개
+                spaceBetween: 20,
+                breakpoints: {
+                    640: { slidesPerView: 2, spaceBetween: 20 },
+                    768: { slidesPerView: 3, spaceBetween: 30 },
+                    1024: { slidesPerView: 4, spaceBetween: 30 },
+                },
+            });
+        });
+
+        // Stat Select Logic
+        function selectStat(element) {
+            // 모든 카드의 active 제거
+            document.querySelectorAll('.stat-card').forEach(card => card.classList.remove('active'));
+            // 클릭된 카드 active 추가
+            element.classList.add('active');
+            
+            console.log("Selected Stat:", element.innerText);
+        }
+
+        // Smooth Scroll to Level
+        function scrollToLevel(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+</html>
