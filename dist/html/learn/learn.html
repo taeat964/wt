@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WT - Learn</title>
+    
+    <link rel="stylesheet" href="/css/reset.min.css">
+    <link rel="stylesheet" href="/css/common.min.css">
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet" />
+    
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/swiper.min.js"></script>
+    <script src="https://vjs.zencdn.net/8.23.4/video.min.js"></script>
+    <script src="/js/common.min.js"></script>
+    
+    <link rel="stylesheet" href="/css/learn.min.css">
+</head>
+
+<body>
+
+    <header class="pc-header">
+        <div class="header-top">
+            <div class="container d-flex justify-between align-center h-full">
+               <a href="/" class="logo">
+                     <img src="/assets/wt_logo.png" alt="" style="height: 50px;">
+                </a>
+
+                <div class="search-wrap">
+                    <input type="text" placeholder="강의를 검색해보세요">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-area">
+                    <div class="user-profile">
+                        <img src="https://placehold.co/100" alt="User">
+                    </div>
+                    <span class="user-name">○○○님</span>
+                    <button class="btn-logout" onclick="alert('로그아웃 되었습니다.')">Logout</button>
+                </div>
+            </div>
+        </div>
+        <div class="header-nav">
+            <div class="container d-flex justify-center">
+                <ul class="gnb">
+                    <li><a href="#">내 강의</a></li>
+                    <li><a href="#">강의 목록</a></li>
+                    <li><a href="#">강의 시청</a></li>
+                    <li><a href="#">강의 평가</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <header class="mo-header">
+        <nav class="container d-flex justify-between align-center h-full">
+            <a href="/" class="logo"><img src="/images/wt_logo.png" alt="WT" style="height: 30px;"></a>
+            <button class="btn mo-menu-btn"><i class="fas fa-bars" style="font-size: 1.5rem; color: var(--color-blue);"></i></button>
+        </nav>
+    </header>
+
+    <aside class="mo-side hidden">
+        <div class="side-header w-full">
+            <div class="d-flex justify-end align-center h-full px-2">
+                <button class="btn menu-close-btn">
+                    <i class="fas fa-times" style="font-size: 1.5rem;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="side-body pt-2 px-2">
+            <section class="sidebar-user d-flex align-center">
+                <div class="user-avatar">
+                    <img src="https://placehold.co/100" alt="" class="img-circle w-full h-full object-cover">
+                </div>
+                <div class="user-info ml-2">
+                    <div class="user-name font-bold">○○○님</div>
+                    <div class="user-meta text-sm text-gray-500">수강생</div>
+                </div>
+            </section>
+            <hr class="sidebar-divider my-4" style="border-top: 1px solid #ddd;" />
+            <nav class="sidebar-nav mb-4">
+                <ul>
+                    <li><a href="#">내 강의</a></li>
+                    <li><a href="#">강의 목록</a></li>
+                    <li><a href="#">강의 시청</a></li>
+                    <li><a href="#">강의 평가</a></li>
+                </ul>
+            </nav>
+            <button class="logout-btn w-full text-center">Logout</button>
+        </div>
+    </aside>
+
+    <div class="container pt-5">
+        
+        <div class="tlt-wrap mb-4">
+            <h2 class="page-title">Lecture Room</h2>
+        </div>
+
+        <div class="inner">
+            <div class="learn-grid">
+                
+                <div class="learn-main">
+                    <div class="video-frame">
+                        <div class="video-inner">
+                            <video id="curriculumVideo" class="video-js vjs-big-play-centered" controls preload="auto" data-setup='{}'>
+                                <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+                                <p class="vjs-no-js">
+                                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                                </p>
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3 class="curriculum-tlt">
+                            선택된 강의 내용
+                            <span class="badge badge-ing">수강중</span>
+                        </h3>
+                        <div class="curriculum-desc">
+                            <p>강의 정보 텍스트</p>
+                            </div>
+                    </div>
+                </div>
+
+                <div class="learn-side">
+                    <select name="curriculum" id="curriculum" class="curriculum-select">
+                        <option value="" disabled>챕터 선택</option>
+                        <option value="ch1" selected>Chapter 1</option>
+                        <option value="ch2">Chapter 2</option>
+                        <option value="ch3">Chapter 3</option>
+                    </select>
+
+                    <div class="list-card">
+                        <div class="list-header">Curriculum</div>
+                        <ul class="curriculum-list">
+                            
+                            <li class="curriculum-item active" onclick="changeVideo(this, 'URL1', '1번 영상')">
+                                <div class="item-left">
+                                    <p class="curriculum-title">1. 강의내용</p>
+                                </div>
+                                <span class="video-duration">10:05</span>
+                            </li>
+
+                            <li class="curriculum-item" onclick="changeVideo(this, 'URL2', '2번 영상')">
+                                <div class="item-left">
+                                    <p class="curriculum-title">2번 영상</p>
+                                    
+                                </div>
+                                <span class="video-duration">15:20</span>
+                            </li>
+
+                            <li class="curriculum-item" onclick="changeVideo(this, 'URL3', '3번 영상')">
+                                <div class="item-left">
+                                    <p class="curriculum-title">3번 영상</p>
+                                    
+                                </div>
+                                <span class="video-duration">20:15</span>
+                            </li>
+
+                            <li class="curriculum-item" onclick="changeVideo(this, 'URL4', '4번 영상')">
+                                <div class="item-left">
+                                    <p class="curriculum-title">4번 영상</p>
+                                </div>
+                                <span class="video-duration">12:30</span>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu
+        const moMenuBtn = document.querySelector(".mo-menu-btn");
+        const moSide = document.querySelector(".mo-side");
+        const menuCloseBtn = document.querySelector(".menu-close-btn");
+
+        if(moMenuBtn) moMenuBtn.addEventListener("click", () => moSide.classList.remove("hidden"));
+        if(menuCloseBtn) menuCloseBtn.addEventListener("click", () => moSide.classList.add("hidden"));
+
+        // Video Player
+        let player = videojs('curriculumVideo', {
+            fluid: true,
+            playbackRates: [0.5, 1, 1.25, 1.5, 2]
+        });
+
+
+        function changeVideo(element, videoUrl, title) {
+
+            document.querySelectorAll('.curriculum-item').forEach(item => item.classList.remove('active'));
+
+            element.classList.add('active');
+
+
+            const mainTitleArea = document.querySelector('.curriculum-tlt');
+            mainTitleArea.innerText = title + " "; 
+
+
+            const clickedBadge = element.querySelector('.badge');
+            
+
+            if (clickedBadge) {
+                const newBadge = clickedBadge.cloneNode(true);
+                mainTitleArea.appendChild(newBadge);
+            } else {
+
+                const newBadge = document.createElement('span');
+                newBadge.className = 'badge badge-ing';
+                newBadge.textContent = '수강중';
+                mainTitleArea.appendChild(newBadge);
+            }
+            
+
+        }
+    </script>
+</body>
+</html>
