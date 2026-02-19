@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WT</title>
+    <link rel="stylesheet" href="/css/reset.min.css">
+    <link rel="stylesheet" href="/css/common.min.css">
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/swiper.min.js"></script>
+    <link rel="stylesheet" href="/css/index.min.css">
+    <script src="/js/index.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="pc-header">
+        <div class="header-top">
+            <div class="container d-flex justify-between align-center h-full">
+                <a href="/" class="logo">
+                    <img src="/images/wt_logo.png" alt="WT" style="height: 40px;">
+                </a>
+
+                <div class="search-wrap">
+                    <input type="text" placeholder="강의를 검색해보세요">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="user-area">
+                    <div class="user-profile">
+                        <img src="https://placehold.co/100" alt="User">
+                    </div>
+                    <span class="user-name">○○○님</span>
+                    <button class="btn-logout" onclick="alert('로그아웃 되었습니다.')">Logout</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-nav">
+            <div class="container d-flex justify-center">
+                <ul class="gnb">
+                    <li><a href="#">내 강의</a></li>
+                    <li><a href="#">강의 목록</a></li>
+                    <li><a href="#">강의 시청</a></li>
+                    <li><a href="#">강의 평가</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <header class="mo-header">
+        <nav class="container d-flex justify-between align-center h-full">
+            <a href="/" class="logo"><span>Edu<strong>WT</strong></span></a>
+            <button class="btn mo-menu-btn"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <aside class="mo-side hidden">
+        <div class="side-header w-full">
+            <div class="d-flex justify-content-end align-center h-full">
+                <div class="btn-wrap close-btn-wrap">
+                    <button class="btn menu-close-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="side-body pt-2 px-2">
+            <section class="sidebar-user d-flex align-center">
+                <div class="user-avatar">
+                    <img src="https://placehold.co/100" alt="" class="img-circle">
+                </div>
+                <div class="user-info">
+                    <div class="user-name">○○○님</div>
+                    <div class="user-meta">Meta Taekwon 수강생</div>
+                </div>
+            </section>
+            <hr class="sidebar-divider" />
+            <nav class="sidebar-nav mb-4">
+                <div class="nav-section-title">메뉴</div>
+                <ul>
+                    <li><a href="#">내 강의</a></li>
+                    <li><a href="#">강의 목록</a></li>
+                    <li><a href="#">강의 시청</a></li>
+                    <li><a href="#">강의 평가</a></li>
+                </ul>
+            </nav>
+            <button class="logout-btn w-full">Logout</button>
+        </div>
+    </aside>
+
+    <div class="container">
+        <div class="banner-wrapper">
+            <div class="swiper" id="bannerSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide slide-1">
+                        <div class="slide-content">
+                            <p class="slide-sub">부제</p>
+                            <p class="slide-main">배너1</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide slide-2">
+                        <div class="slide-content">
+                            <p class="slide-sub">부제</p>
+                            <p class="slide-main">배너2</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide slide-3">
+                        <div class="slide-content">
+                            <p class="slide-sub">부제</p>
+                            <p class="slide-main">배너3</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <section class="category-menu">
+            <div class="cat-list">
+                <a href="#sec-popular" class="cat-item">
+                    <div class="cat-icon icon-pop"><i class="fas fa-fire"></i></div>
+                    <div class="cat-text">Popular Lectures</div>
+                </a>
+                <a href="#sec-purchased" class="cat-item">
+                    <div class="cat-icon icon-pur"><i class="fas fa-book-open"></i></div>
+                    <div class="cat-text">Purchased Lectures</div>
+                </a>
+                <a href="#sec-pending" class="cat-item">
+                    <div class="cat-icon icon-pen"><i class="fas fa-edit"></i></div>
+                    <div class="cat-text">Pending Evaluation</div>
+                </a>
+            </div>
+        </section>
+
+        <div class="dash-wrapper">
+            
+            <section id="sec-popular" class="dash-section">
+                <div class="dash-header">
+                    <h3 class="dash-title"><i class="fas fa-fire" style="font-size: 1.5rem; color: #e94e4e;"></i>Popular Lectures</h3>
+                    <a href="#" class="more-btn">더보기 +</a>
+                </div>
+                <div class="course-grid">
+                      <div class="course-card">
+                        <div class="img-wrap"><img src="https://placehold.co/500" alt=""></div>
+                        <div class="text-wrap">
+                            <p class="course-title">강의명</p>
+                            <p class="course-desc">부재</p>
+                        </div>
+                    </div>
+                     <div class="course-card">
+                        <div class="img-wrap"><img src="https://placehold.co/500" alt=""></div>
+                        <div class="text-wrap">
+                            <p class="course-title">강의명</p>
+                            <p class="course-desc">부재</p>
+                        </div>
+                    </div>
+                     <div class="course-card">
+                        <div class="img-wrap"><img src="https://placehold.co/500" alt=""></div>
+                        <div class="text-wrap">
+                            <p class="course-title">강의명</p>
+                            <p class="course-desc">부재</p>
+                        </div>
+                    </div>
+                      <div class="course-card">
+                        <div class="img-wrap"><img src="https://placehold.co/500" alt=""></div>
+                        <div class="text-wrap">
+                            <p class="course-title">강의명</p>
+                            <p class="course-desc">부재</p>
+                        </div>
+                    </div>
+            </section>
+
+            <section id="sec-purchased" class="dash-section">
+                <div class="dash-header"><h3 class="dash-title">
+                    <i class="fas fa-book-open" style="font-size: 1.5rem; color: var(--color-blue)"></i>
+                    Purchased Lectures</h3>
+                    <a href="#" class="more-btn">더보기 +</a>
+                </div>
+                <div class="course-grid">
+                    <div class="course-card">
+                        <div class="img-wrap"><img src="https://placehold.co/500" alt=""></div>
+                        <div class="text-wrap">
+                            <p class="course-title">강의명</p>
+                            <p class="course-desc">부재</p>
+                        </div>
+                    </div>
+                     <div class="course-card">
+                        <div class="img-wrap"><img src="https://placehold.co/500" alt=""></div>
+                        <div class="text-wrap">
+                            <p class="course-title">강의명</p>
+                            <p class="course-desc">부재</p>
+                        </div>
+                    </div>
+                      <div class="course-card">
+                        <div class="img-wrap"><img src="https://placehold.co/500" alt=""></div>
+                        <div class="text-wrap">
+                            <p class="course-title">강의명</p>
+                            <p class="course-desc">부재</p>
+                        </div>
+                    </div>
+                    <div class="course-card empty-card"></div>
+                </div>
+            </section>
+
+            <section id="sec-pending" class="dash-section">
+                <div class="dash-header"><h3 class="dash-title">
+                <i class="fas fa-edit" style="font-size: 1.5rem; color: #ecad00;"></i>
+                Pending Evaluation</h3>
+                <a href="#" class="more-btn">더보기 +</a>
+                </div>
+                <div class="course-grid">
+                    <div class="course-card">
+                        <div class="img-wrap"><img src="https://placehold.co/500" alt=""></div>
+                        <div class="text-wrap">
+                            <p class="course-title">강의명</p>
+                            <p class="course-desc status-alert">부재</p>
+                        </div>
+                    </div>
+                    <div class="course-card empty-card"></div>
+                    <div class="course-card empty-card"></div>
+                    <div class="course-card empty-card"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $(".mo-menu-btn").on("click", function () {
+                $(".mo-side").removeClass("hidden");
+            });
+
+            $(".menu-close-btn").on("click", function () {
+                $(".mo-side").addClass("hidden");
+            });
+
+            const swiper = new Swiper("#bannerSwiper", {
+            loop: true,
+            autoplay: {
+                delay: 10000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            effect: "slide", 
+            speed: 600
+            });
+        });
+    </script>
+</body>
+</html>

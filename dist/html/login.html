@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WT - Login</title>
+    
+    <link rel="stylesheet" href="/css/reset.min.css">
+    <link rel="stylesheet" href="/css/common.min.css">
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/swiper.min.js"></script>
+    <link rel="stylesheet" href="/css/login.min.css">
+ 
+
+</head>
+
+<body>
+
+    <div class="neumorphism-card" id="loginSection">
+        <div class="logo">
+            <img src="/images/wt_logo.png" alt="WT" style="height: 80px; width: auto;">
+        </div>
+
+        <form class="login-form" onsubmit="event.preventDefault(); alert('로그인 처리');">
+            <div class="input-group">
+                <label for="login-email">이메일</label>
+                <div class="input-wrapper">
+                    <i class="far fa-envelope"></i>
+                    <input type="email" id="login-email" class="input-field" placeholder="example@email.com" required>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="login-pw">비밀번호</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="login-pw" class="input-field" placeholder="비밀번호를 입력하세요" required>
+                </div>
+            </div>
+            <button type="submit" class="btn-action mt-4">Login</button>
+        </form>
+
+        <div class="footer-links">
+            <a onclick="showSection('find')">비밀번호 찾기</a>
+            <span class="divider"></span>
+            <a href="/html/regist/regist_form.html">회원가입</a>
+        </div>
+    </div>
+
+    <div class="neumorphism-card hidden" id="findSection">
+         <div class="logo">
+            <img src="/images/wt_logo.png" alt="WT" style="height: 80px; width: auto;">
+        </div>
+        <h2 class="page-password">비밀번호 찾기</h2>
+        <p class="description">
+            가입 시 등록한 이메일을 입력하시면<br>
+            재설정 링크를 보내드립니다.
+        </p>
+
+        <form onsubmit="event.preventDefault(); showSection('success');">
+            <div class="input-group">
+                <label for="find-email">이메일</label>
+                <div class="input-wrapper">
+                    <i class="far fa-envelope"></i>
+                    <input type="email" id="find-email" class="input-field" placeholder="example@email.com" required>
+                </div>
+            </div>
+            <button type="submit" class="btn-action mt-4">Find Password</button>
+        </form>
+
+        <a onclick="showSection('login')" class="back-link">
+            <i class="fas fa-arrow-left"></i> 로그인 페이지로 돌아가기
+        </a>
+    </div>
+
+    <div id="findPasswordSuccessWarp" class="neumorphism-card hidden">
+        <div class="logo">
+            <img src="/images/wt_logo.png" alt="WT" style="height: 80px; width: auto;">
+        </div>
+        
+        <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+
+        <h2 class="page-title mb-4">임시 비밀번호 발송</h2>
+        <p class="description">입력하신 이메일 주소로<br>임시 비밀번호가 발송되었습니다.</p>
+        
+        <button class="btn-action mt-4 w-full" onclick="showSection('login');">To Login</button>
+    </div>
+
+    <script>
+
+        const sections = {
+            login: document.getElementById('loginSection'),
+            find: document.getElementById('findSection'),
+            success: document.getElementById('findPasswordSuccessWarp')
+        };
+
+        function showSection(sectionName) {
+
+            Object.values(sections).forEach(el => el.classList.add('hidden'));
+            
+
+            if (sections[sectionName]) {
+                sections[sectionName].classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
