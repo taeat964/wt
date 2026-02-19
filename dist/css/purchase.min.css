@@ -1,0 +1,198 @@
+/* purchase.min.css */
+
+body {
+    background-color: var(--bg-color);
+}
+
+.inner {
+    padding-bottom: 50px;
+}
+
+/* Page Title */
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-top: 20px;
+}
+
+/* Layout Grid */
+.purchase-grid {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Left & Right Column */
+.purchase-main { width: 65%; }
+.purchase-side { width: 35%; }
+
+/* Card Style */
+.purchase-card {
+    background: var(--bg-color);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: var(--outer-shadow);
+    margin-bottom: 25px;
+}
+
+.card-tlt {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.card-tlt i {
+    color: var(--color-blue);
+}
+
+/* --- Lecture Info Section --- */
+.lecture-summary {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.lecture-thumb {
+    width: 120px;
+    height: 80px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--inner-shadow);
+    flex-shrink: 0;
+}
+
+.lecture-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lecture-meta h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.lecture-meta p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Curriculum List */
+.curriculum-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.curriculum-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: #fff;
+    border-radius: 10px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+
+.curriculum-item:hover {
+    color: var(--color-blue);
+    border-color: var(--color-blue);
+    background-color: #f8fbff;
+    transform: translateX(5px);
+}
+
+.curriculum-item i {
+    margin-right: 12px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+.curriculum-item:hover i { color: var(--color-blue); }
+
+
+/* --- User Info Section (Side) --- */
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.info-label {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.info-val {
+    color: var(--text-main);
+    font-weight: 700;
+    text-align: right;
+}
+
+/* Price & Button */
+.price-area {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px dashed #e0e0e0;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.total-label { font-size: 1.1rem; font-weight: 800; color: var(--text-main); }
+
+
+.total-price { 
+    font-size: 1.5rem; 
+    font-weight: 900; 
+    color: var(--color-red); 
+}
+
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    background: var(--color-blue);
+    color: #fff;
+    box-shadow: none;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #1d4ed8; /* Darker Blue */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .purchase-grid { flex-direction: column; }
+    .purchase-main, .purchase-side { width: 100%; }
+    .lecture-summary { flex-direction: column; }
+    .lecture-thumb { width: 100%; height: 180px; }
+}

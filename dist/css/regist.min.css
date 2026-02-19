@@ -1,0 +1,95 @@
+:root {
+    --text-sub: #7d8498;
+    --color-yellow: #feaf39;
+    --shadow-in-focus: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.mt-4 { margin-top: 1.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.w-full { width: 100%; }
+.text-center { text-align: center; }
+
+.neumorphism-card {
+    width: 100%;
+    max-width: 450px; 
+    padding: 50px 40px;
+    border-radius: 30px;
+    background: var(--bg-color);
+    box-shadow: var(--outer-shadow);
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.3);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.logo { 
+    margin-bottom: 20px;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-blue);
+    margin-bottom: 30px;
+}
+
+.sub-title {
+    color: var(--text-sub);
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+
+.input-group { position: relative; margin-bottom: 20px; text-align: left; }
+.input-group label { display: block; margin-left: 15px; margin-bottom: 8px; font-size: 0.9rem; font-weight: 700; color: var(--text-main); }
+.input-wrapper { position: relative; }
+.input-wrapper i { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--text-sub); font-size: 1.1rem; }
+
+.input-field {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    border-radius: 50px; border: none;
+    background: var(--bg-color); color: var(--text-main);
+    font-size: 1rem; outline: none;
+    box-shadow: var(--inner-shadow);
+    transition: 0.3s;
+}
+.input-field:focus { 
+    box-shadow: var(--shadow-in-focus); 
+    outline: 2px solid var(--color-blue);
+    outline-offset: -2px;
+}
+
+
+.btn-action {
+    width: 100%; padding: 15px;
+    border-radius: 50px; border: none;
+    background: var(--color-blue); color: white;
+    font-size: 1.1rem; font-weight: bold; cursor: pointer;
+    box-shadow: 5px 5px 15px rgba(13, 110, 253, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.8);
+    transition: all 0.2s ease;
+}
+.btn-action:hover { transform: translateY(-2px); box-shadow: 6px 6px 20px rgba(13, 110, 253, 0.4), -6px -6px 20px rgba(255, 255, 255, 0.9); }
+.btn-action:active { transform: translateY(0); box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.2); }
+
+.back-link { display: inline-block; margin-top: 25px; font-size: 0.9rem; color: var(--text-sub); font-weight: 600; cursor: pointer; }
+.back-link:hover { color: var(--color-blue); }
+
+
+.success-icon { font-size: 4rem; color: var(--color-blue); margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(13, 110, 253, 0.2); }
+.success-desc { color: var(--text-sub); line-height: 1.5; margin-bottom: 30px; }
+
+@media (max-width: 480px) { .neumorphism-card { width: 90%; padding: 40px 20px; } }

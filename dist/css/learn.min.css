@@ -1,0 +1,244 @@
+/* learn.min.css */
+
+:root {
+    --video-bg: #000;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+.inner {
+    padding-bottom: 50px;
+}
+
+
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px var(--shadow-dark), -2px -2px 4px var(--shadow-light);
+}
+
+
+.learn-grid {
+    display: flex;
+    gap: 30px;
+}
+
+
+.learn-main { width: 75%; }
+
+
+.video-frame {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--outer-shadow);
+    background: var(--bg-color);
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.video-inner {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #000;
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.video-js {
+    position: absolute !important;
+    top: 0; left: 0; width: 100% !important; height: 100% !important;
+    background-color: transparent;
+}
+
+/* Info Card */
+.info-card {
+    padding: 30px;
+    border-radius: 20px;
+    background: var(--bg-color);
+    box-shadow: var(--outer-shadow);
+}
+
+
+.curriculum-tlt {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;       
+    align-items: center; 
+    gap: 12px;          
+    flex-wrap: wrap;    
+}
+
+.curriculum-desc {
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+
+.learn-side {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.curriculum-select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 15px;
+    border: none;
+    background: var(--bg-color);
+    color: #333;    
+    font-weight: 700;
+    box-shadow: var(--outer-shadow);
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.curriculum-select:hover {
+    transform: translateY(-2px);    
+}
+
+
+.curriculum-select option {
+    background-color: #fff;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+
+.list-card {
+    background: var(--bg-color);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: var(--outer-shadow);
+    height: 100%;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.list-header {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.curriculum-list { list-style: none; }
+
+.curriculum-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-main);
+    border: 2px solid transparent; 
+}
+
+.curriculum-item:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.4);
+    box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+}
+
+
+.curriculum-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-main);
+    border: 2px solid transparent; 
+}
+
+.curriculum-item:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.4);
+    box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+}
+
+.curriculum-item.active {
+    font-weight: 700;
+    color: var(--color-blue); 
+    background-color: #e0edff; 
+    box-shadow: var(--inner-shadow);
+    border: 1px solid var(--color-blue); 
+}
+
+.item-left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+    gap: 8px; 
+}
+
+.curriculum-title {
+    font-size: 0.95rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 0 1 auto;
+}
+
+.video-duration {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.curriculum-item.active .video-duration { color: var(--color-blue); }
+
+/* Badge Styles */
+.badge {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    height: fit-content;
+    flex-shrink: 0;
+}
+
+/* Badge Variations */
+.badge-ing { 
+    background-color: #fee2e2; 
+    color: #ef4444;
+} 
+
+.badge-done { 
+    background-color: #dbeafe; 
+    color: #2563eb; /* Blue */
+} 
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    .learn-grid { flex-direction: column; }
+    .learn-main, .learn-side { width: 100%; }
+    .list-card { max-height: 400px; }
+}
