@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WT - Purchase</title>
+    
+    <link rel="stylesheet" href="/css/reset.min.css">
+    <link rel="stylesheet" href="/css/common.min.css">
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/swiper.min.js"></script>
+    <script src="/js/common.min.js"></script>
+    
+    <link rel="stylesheet" href="/css/purchase.min.css">
+</head>
+
+<body>
+
+    <header class="pc-header">
+        <div class="header-top">
+            <div class="container d-flex justify-between align-center h-full">
+                <a href="/" class="logo">
+                    <img src="/images/wt_logo.png" alt="WT" style="height: 40px;">
+                </a>
+                 <div class="search-wrap">
+                    <input type="text" placeholder="강의를 검색해보세요">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-area">
+                    <div class="user-profile">
+                        <img src="https://placehold.co/100" alt="User">
+                    </div>
+                    <span class="user-name">○○○님</span>
+                    <button class="btn-logout" onclick="alert('로그아웃 되었습니다.')">Logout</button>
+                </div>
+            </div>
+        </div>
+        <div class="header-nav">
+            <div class="container d-flex justify-center">
+                <ul class="gnb">
+                    <li><a href="#">내 강의</a></li>
+                    <li><a href="#">강의 목록</a></li>
+                    <li><a href="#">강의 시청</a></li>
+                    <li><a href="#">강의 평가</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <header class="mo-header">
+        <nav class="container d-flex justify-between align-center h-full">
+            <a href="/" class="logo"><img src="/images/wt_logo.png" alt="WT" style="height: 30px;"></a>
+            <button class="btn mo-menu-btn"><i class="fas fa-bars" style="font-size: 1.5rem; color: var(--color-blue);"></i></button>
+        </nav>
+    </header>
+
+    <aside class="mo-side hidden">
+        <div class="side-header w-full">
+            <div class="d-flex justify-end align-center h-full px-2">
+                <button class="btn menu-close-btn">
+                    <i class="fas fa-times" style="font-size: 1.5rem;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="side-body pt-2 px-2">
+            <section class="sidebar-user d-flex align-center">
+                <div class="user-avatar">
+                    <img src="https://placehold.co/100" alt="" class="img-circle w-full h-full object-cover">
+                </div>
+                <div class="user-info ml-2">
+                    <div class="user-name font-bold">○○○님</div>
+                    <div class="user-meta text-sm text-gray-500">수강생</div>
+                </div>
+            </section>
+            <hr class="sidebar-divider my-4" style="border-top: 1px solid #ddd;" />
+            <nav class="sidebar-nav mb-4">
+                <div class="nav-section-title mb-2 text-gray-400 text-sm">MENU</div>
+                <ul>
+                    <li><a href="#">내 강의</a></li>
+                    <li><a href="#">강의 목록</a></li>
+                    <li><a href="#">강의 시청</a></li>
+                    <li><a href="#">강의 평가</a></li>
+                </ul>
+            </nav>
+            <button class="logout-btn w-full text-center">Logout</button>
+        </div>
+    </aside>
+
+    <div class="container pt-5">
+        
+        <div class="tlt-wrap mb-4">
+            <h2 class="page-title">Purchase</h2>
+        </div>
+
+        <div class="inner">
+            <div class="purchase-grid">
+                
+                <div class="purchase-main">
+                    <div class="purchase-card">
+                        <h3 class="card-tlt">
+                            <i class="fas fa-book-open" style="color: var(--color-blue);"></i>
+                            Curriculum Information
+                        </h3>
+                        
+                        <div class="lecture-summary">
+                            <div class="lecture-thumb">
+                                <img src="https://placehold.co/500" alt="Lecture">
+                            </div>
+                            <div class="lecture-meta">
+                                <h3>Curriculum Title</h3>
+                                <p>Curriculum</p>
+                            </div>
+                        </div>
+
+                        <div class="curriculum-preview">
+                            <h4 class="mb-3" style="font-weight: 700; color: var(--text-main);">Total Curriculum</h4>
+                            <div class="curriculum-list">
+                                <div class="curriculum-item"><i class="fas fa-play-circle"></i> 1. [영상]강의자료</div>
+                                <div class="curriculum-item"><i class="fas fa-play-circle"></i> 2. [영상]강의자료</div>
+                                <div class="curriculum-item"><i class="fas fa-play-circle"></i> 3. [영상]강의자료</div>
+                                <div class="curriculum-item"><i class="fas fa-file-alt"></i> 4. [자료]강의자료</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="purchase-side">
+                    <div class="purchase-card">
+                        <h3 class="card-tlt">
+                            <i class="fas fa-user-check" style="color: var(--color-blue);"></i>
+                            User Information
+                        </h3>
+                        <div class="user-info-box">
+                            <div class="info-row">
+                                <span class="info-label">User Name</span>
+                                <span class="info-val">김철수</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Email Address</span>
+                                <span class="info-val">chulsoo@example.com</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Phone Number</span>
+                                <span class="info-val">010-1234-5678</span>
+                            </div>
+                        </div>
+
+                        <div class="price-area">
+                            <div class="total-row">
+                                <span class="total-label">Total Amount</span>
+                                <span class="total-price">55,000₩</span>
+                            </div>
+                            <button class="btn submit-btn" onclick="alert('구매가 완료되었습니다!')">구매하기</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Logic
+        const moMenuBtn = document.querySelector(".mo-menu-btn");
+        const moSide = document.querySelector(".mo-side");
+        const menuCloseBtn = document.querySelector(".menu-close-btn");
+
+        if(moMenuBtn) moMenuBtn.addEventListener("click", () => moSide.classList.remove("hidden"));
+        if(menuCloseBtn) menuCloseBtn.addEventListener("click", () => moSide.classList.add("hidden"));
+    </script>
+</body>
+</html>
