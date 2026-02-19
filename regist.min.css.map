@@ -1,0 +1,1 @@
+{"version":3,"sources":["regist.scss"],"names":[],"mappings":"AAAA,eAAgB,OAAA,MACZ,mBAAO,UAAA","file":"regist.min.css","sourcesContent":[".login-wrapper {height: 100vh; \r\n    &>div {max-width: 350px;}\r\n}"]}
