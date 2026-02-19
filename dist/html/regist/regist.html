@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WT - Join</title>
+    
+    <link rel="stylesheet" href="/css/reset.min.css">
+    <link rel="stylesheet" href="/css/common.min.css">
+    <script src="/js/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="/css/regist.min.css">
+</head>
+
+<body>
+
+    <div class="neumorphism-card">
+        
+        <div id="registSection">
+            <div class="logo">
+           <img src="/images/wt_logo.png" alt="WT" style="height: 80px; width: auto;">
+        </div>
+            <h2 class="page-title">회원가입</h2>
+
+            <form class="regist-form" onsubmit="event.preventDefault(); showSuccess();">
+                
+                <div class="input-group">
+                    <label for="email">이메일</label>
+                    <div class="input-wrapper">
+                        <i class="far fa-envelope"></i>
+                        <input type="email" id="email" class="input-field" placeholder="example@email.com" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">비밀번호</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" class="input-field" placeholder="비밀번호를 입력하세요" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="passwordConfirm">비밀번호 확인</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-check-circle"></i>
+                        <input type="password" id="passwordConfirm" class="input-field" placeholder="비밀번호를 다시 입력하세요" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-action mt-4">Join Us</button>
+            </form>
+
+            <a href="/html/login.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> 로그인으로 돌아가기
+            </a>
+        </div>
+
+        <div id="successSection" class="hidden">
+            <div class="logo">
+            <img src="/assets/wt_logo.png" alt="WT" style="height: 80px; width: auto;">
+        </div>
+            <h2 class="page-title">가입 완료!</h2>
+            <p class="success-desc">
+                회원가입이 성공적으로 완료되었습니다.
+            </p>
+            
+            <button class="btn-action w-full" onclick="location.href='/html/login.html'">로그인 하러가기</button>
+        </div>
+
+    </div>
+
+    <script>
+        function showSuccess() {
+            // 폼 섹션 숨기기
+            document.getElementById('registSection').classList.add('hidden');
+            // 성공 섹션 보이기
+            document.getElementById('successSection').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
