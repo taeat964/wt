@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WT - Evaluation</title>
+    
+    <link rel="stylesheet" href="/css/reset.min.css">
+    <link rel="stylesheet" href="/css/common.min.css">
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/swiper.min.js"></script>
+    <script src="/js/common.min.js"></script>
+    
+    <link rel="stylesheet" href="/css/evaluation.min.css">
+</head>
+
+<body>
+
+    <header class="pc-header">
+        <div class="header-top">
+            <div class="container d-flex justify-between align-center h-full">
+                <a href="/" class="logo">
+                    <img src="/images/wt_logo.png" alt="WT" style="height: 40px;">
+                </a>
+
+                <div class="search-wrap">
+                    <input type="text" placeholder="강의를 검색해보세요">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-area">
+                    <div class="user-profile">
+                        <img src="https://placehold.co/100" alt="User">
+                    </div>
+                    <span class="user-name">○○○님</span>
+                    <button class="btn-logout" onclick="alert('로그아웃 되었습니다.')">Logout</button>
+                </div>
+            </div>
+        </div>
+        <div class="header-nav">
+            <div class="container d-flex justify-center">
+                <ul class="gnb">
+                    <li><a href="#">내 강의</a></li>
+                    <li><a href="#">강의 목록</a></li>
+                    <li><a href="#">강의 시청</a></li>
+                    <li><a href="#">강의 평가</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <header class="mo-header">
+        <nav class="container d-flex justify-between align-center h-full">
+            <a href="/" class="logo"><img src="/images/wt_logo.png" alt="WT" style="height: 30px;"></a>
+            <button class="btn mo-menu-btn"><i class="fas fa-bars" style="font-size: 1.5rem; color: var(--color-blue);"></i></button>
+        </nav>
+    </header>
+
+    <aside class="mo-side hidden">
+        <div class="side-header w-full">
+            <div class="d-flex justify-end align-center h-full px-2">
+                <button class="btn menu-close-btn">
+                    <i class="fas fa-times" style="font-size: 1.5rem;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="side-body pt-2 px-2">
+            <section class="sidebar-user d-flex align-center">
+                <div class="user-avatar">
+                    <img src="https://placehold.co/100" alt="" class="img-circle w-full h-full object-cover">
+                </div>
+                <div class="user-info ml-2">
+                    <div class="user-name font-bold">○○○님</div>
+                    <div class="user-meta text-sm text-gray-500">수강생</div>
+                </div>
+            </section>
+            <hr class="sidebar-divider my-4" style="border-top: 1px solid #ddd;" />
+            <nav class="sidebar-nav mb-4">
+                <div class="nav-section-title mb-2 text-gray-400 text-sm">MENU</div>
+                <ul>
+                    <li><a href="#">내 강의</a></li>
+                    <li><a href="#">강의 목록</a></li>
+                    <li><a href="#">강의 시청</a></li>
+                    <li><a href="#">강의 평가</a></li>
+                </ul>
+            </nav>
+            <button class="logout-btn w-full text-center">Logout</button>
+        </div>
+    </aside>
+
+    <div class="container pt-5">
+        
+        <div class="tlt-wrap mb-4">
+            <h2 class="page-title">Evaluation</h2>
+        </div>
+
+        <div class="inner">
+            <div class="eval-grid">
+                
+                <div class="eval-side">
+                    <div class="eval-card">
+                        <h3 class="card-tlt">강의 선택</h3>
+                        <ul class="curriculum-list">
+                            <li class="curriculum-item active" onclick="showEvaluationForm(this, false)">
+                                <p>시청완료한 강의</p>
+                                <span class="score-badge badge-red">미평가</span>
+                            </li>
+                            <li class="curriculum-item" onclick="showEvaluationForm(this, 82)">
+                                <p>시청완료한 강의</p>
+                                <span class="score-badge badge-blue">82점</span>
+                            </li>
+                            <li class="curriculum-item" onclick="showEvaluationForm(this, false)">
+                                <p>시청완료한 강의</p>
+                                <span class="score-badge badge-red">미평가</span>
+                            </li>
+                            <li class="curriculum-item" onclick="showEvaluationForm(this, 45)">
+                                <p>시청완료한 강의</p>
+                                <span class="score-badge badge-blue">45점</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="eval-card mt-4">
+                        <h3 class="card-tlt">Result</h3>
+                        <div class="result-score-box">
+                            <span id="sideScoreNumber" class="score-number">0</span>
+                            <span class="score-unit">Point</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eval-main">
+                    <div class="eval-card">
+                        <h3 class="card-tlt">강의평가</h3>
+                        
+                        <form class="test-form" id="testForm">
+                            <div class="question-wrap">
+                                <h4 class="q-tlt"><span class="q-num">1</span> 질문</h4>
+                                <div class="option-container">
+                                    <input type="radio" name="q1" id="q1-1" class="option-input">
+                                    <label for="q1-1" class="option-label"><i class="fas fa-check check-mark"></i>보기1</label>
+                                    <input type="radio" name="q1" id="q1-2" class="option-input">
+                                    <label for="q1-2" class="option-label"><i class="fas fa-check check-mark"></i>보기2</label>
+                                    <input type="radio" name="q1" id="q1-3" class="option-input">
+                                    <label for="q1-3" class="option-label"><i class="fas fa-check check-mark"></i>보기3</label>
+                                </div>
+                            </div>
+                            <div class="question-wrap">
+                                <h4 class="q-tlt"><span class="q-num">2</span>질문</h4>
+                                <div class="option-container">
+                                    <input type="radio" name="q2" id="q2-1" class="option-input">
+                                    <label for="q2-1" class="option-label"><i class="fas fa-check check-mark"></i>보기1</label>
+                                    <input type="radio" name="q2" id="q2-2" class="option-input">
+                                    <label for="q2-2" class="option-label"><i class="fas fa-check check-mark"></i>보기2</label>
+                                    <input type="radio" name="q2" id="q2-3" class="option-input">
+                                    <label for="q2-3" class="option-label"><i class="fas fa-check check-mark"></i>보기3</label>
+                                </div>
+                            </div>
+                            <div class="question-wrap">
+                                <h4 class="q-tlt"><span class="q-num">3</span>중복선택 질문</h4>
+                                <div class="option-container">
+                                    <input type="checkbox" name="q3" id="q3-1" class="option-input">
+                                    <label for="q3-1" class="option-label"><i class="fas fa-check check-mark"></i>보기1</label>
+                                    <input type="checkbox" name="q3" id="q3-2" class="option-input">
+                                    <label for="q3-2" class="option-label"><i class="fas fa-check check-mark"></i>보기2</label>
+                                    <input type="checkbox" name="q3" id="q3-3" class="option-input">
+                                    <label for="q3-3" class="option-label"><i class="fas fa-check check-mark"></i>보기3</label>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="btn-wrap" id="actionArea">
+                            <button class="btn submit-btn" onclick="submitEvaluation()">제출하기</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Logic
+        const moMenuBtn = document.querySelector(".mo-menu-btn");
+        const moSide = document.querySelector(".mo-side");
+        const menuCloseBtn = document.querySelector(".menu-close-btn");
+
+        if(moMenuBtn) moMenuBtn.addEventListener("click", () => moSide.classList.remove("hidden"));
+        if(menuCloseBtn) menuCloseBtn.addEventListener("click", () => moSide.classList.add("hidden"));
+
+        // [Logic] Evaluation Display
+        const testForm = document.getElementById("testForm");
+        const actionArea = document.getElementById("actionArea");
+        const sideScoreNumber = document.getElementById("sideScoreNumber");
+
+        // 초기화
+        showEvaluationForm(document.querySelector(".curriculum-item.active"), false);
+
+        function showEvaluationForm(element, score) {
+            // 1. Toggle Active Class
+            document.querySelectorAll(".curriculum-item").forEach(item => item.classList.remove("active"));
+            element.classList.add("active");
+
+            // 2. Reset Form State (Disable/Enable)
+            if (score) {
+                // 이미 평가 완료된 경우
+                testForm.classList.add("disabled"); // 폼 비활성화 (CSS 처리)
+                sideScoreNumber.innerText = score;  // 사이드바 점수 표시
+                sideScoreNumber.classList.remove("no-score");
+                
+                // 완료 메시지 표시
+                actionArea.innerHTML = '<div class="completed-msg"><i class="fas fa-check-circle"></i> 제출이 완료되었습니다.</div>';
+                
+                // (Demo) 기존 답안 체크 시뮬레이션 (랜덤)
+                document.getElementById('q1-2').checked = true;
+                document.getElementById('q2-1').checked = true;
+                document.getElementById('q3-1').checked = true;
+
+            } else {
+                // 미평가인 경우
+                testForm.classList.remove("disabled"); // 폼 활성화
+                sideScoreNumber.innerText = "0";       // 점수 0 초기화
+                sideScoreNumber.classList.add("no-score");
+                
+                // 제출 버튼 표시
+                actionArea.innerHTML = '<button class="btn submit-btn" onclick="submitEvaluation()">제출하기</button>';
+                
+                // 폼 입력 초기화
+                testForm.reset();
+            }
+        }
+
+        // 제출 버튼 클릭 시 (Demo)
+        function submitEvaluation() {
+            // 1. 점수 계산 로직 등 처리
+            const newScore = 82;
+            
+            // 2. 화면 업데이트
+            testForm.classList.add("disabled"); // 폼 비활성화
+            sideScoreNumber.innerText = newScore; // 사이드바 점수 업데이트
+            
+            // 3. 버튼 -> 완료 메시지로 교체
+            actionArea.innerHTML = '<div class="completed-msg"><i class="fas fa-check-circle"></i> 제출이 완료되었습니다.</div>';
+            
+            // 4. 리스트 배지 업데이트
+            const activeItemBadge = document.querySelector(".curriculum-item.active .score-badge");
+            activeItemBadge.className = "score-badge badge-blue";
+            activeItemBadge.innerText = newScore + "점";
+            
+            // 5. 클릭 이벤트 속성 변경
+            const activeItem = document.querySelector(".curriculum-item.active");
+            activeItem.setAttribute("onclick", `showEvaluationForm(this, ${newScore})`);
+
+            alert("평가가 제출되었습니다.");
+        }
+    </script>
+</body>
+</html>
